@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by pishilong on 15/9/30.
  */
 public class BruteForce extends Algorithem{
-    public static void performance(Point[] points) {
+    public void performance(Point[] points) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < points.length; i++){
             for (int j = i + 1; j < points.length; j ++ ){
@@ -32,6 +32,7 @@ public class BruteForce extends Algorithem{
         int pointNumber = 1000000;
         Point[] points = Point.generateRandomPoints(pointNumber);
 
-        performance(points);
+        BruteForce algorithm = new BruteForce();
+        algorithm.performance(points);
     }
 }

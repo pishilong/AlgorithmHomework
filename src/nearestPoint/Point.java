@@ -13,10 +13,12 @@ import java.util.Set;
 public class Point {
     private double x;
     private double y;
+    private boolean selected;
 
     public Point(double x, double y){
         this.x = x;
         this.y = y;
+        this.selected = false;
     }
 
     public double getX(){
@@ -25,6 +27,16 @@ public class Point {
 
     public double getY(){
         return this.y;
+    }
+
+    public boolean getSelected() {return this.selected; }
+
+    public void select() {
+        this.selected = true;
+    }
+
+    public void unselect() {
+        this.selected = false;
     }
 
     public static Point[] generateRandomPoints(int num){

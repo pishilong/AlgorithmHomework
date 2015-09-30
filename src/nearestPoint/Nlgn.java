@@ -9,7 +9,8 @@ import java.util.*;
  */
 public class Nlgn extends Algorithem{
 
-    public static void performance(Point[] points){
+    public void performance(Point[] points){
+        reset();
         long startTime = System.currentTimeMillis();
         //按照x轴排序，方便divide
         Arrays.sort(points, new Comparator<Point>() {
@@ -30,17 +31,21 @@ public class Nlgn extends Algorithem{
             System.out.println(point);
         }
         long endTime = System.currentTimeMillis();
+        timecost = endTime - startTime;
         System.out.println("点数=" + points.length + ";Nlgn算法计算时间: " + (endTime - startTime) + "ms");
     }
+
+
 
     public static void main(String args[]){
         int pointNumber = 1000000;
         Point[] points = Point.generateRandomPoints(pointNumber);
 
-        performance(points);
+        Nlgn algorithm = new Nlgn();
+        algorithm.performance(points);
     }
 
-    public static void findNearestDistance(Point[] points, int start, int end){
+    public void findNearestDistance(Point[] points, int start, int end){
         // 处理递归树叶子节点
         if (start == end) return;
         if (end - start == 1) {
