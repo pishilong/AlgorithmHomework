@@ -1,5 +1,7 @@
 package nearestPoint;
 
+import util.DecimalHandler;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -9,36 +11,35 @@ import java.util.Set;
  * Created by pishilong on 15/9/28.
  */
 public class Point {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
-    public Point(int x, int y){
+    public Point(double x, double y){
         this.x = x;
         this.y = y;
     }
 
-    public int getX(){
+    public double getX(){
         return this.x;
     }
 
-    public int getY(){
+    public double getY(){
         return this.y;
     }
 
     public static Point[] generateRandomPoints(int num){
-        Random random = new Random();
+
         Set<Point> points = new HashSet<Point>();
-        int bound = num;
-        while (num > 0) {
-            points.add(new Point(random.nextInt(bound), random.nextInt(bound)));
-            num --;
+        while (points.size() < num) {
+            points.add(new Point(DecimalHandler.getFormattedRandomDouble(num, 2),
+                    DecimalHandler.getFormattedRandomDouble(num, 2)));
         }
         return points.toArray(new Point[0]);
     }
 
     public double getDistance(Point other){
-        double distance = Math.pow((double)(this.x - other.getX()), 2.0) +
-                Math.pow((double)(this.y - other.getY()), 2.0);
+        double distance = Math.pow(this.x - other.getX(), 2.0) +
+                Math.pow(this.y - other.getY(), 2.0);
         return Math.sqrt(distance);
     }
 
@@ -58,8 +59,8 @@ public class Point {
     public int hashCode(){
         final int prime = 31;
         int result = 1;
-        result = prime*result + x;
-        result = prime*result + y;
+        result = prime*result + Double.hashCode(x);
+        result = prime*result + Double.hashCode(y);
         return result;
     }
 

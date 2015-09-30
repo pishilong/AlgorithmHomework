@@ -7,19 +7,10 @@ import java.util.*;
  * Created by pishilong on 15/9/28.
  * Find the nearest point pair
  */
-public class Main {
+public class Nlgn extends Algorithem{
 
-    static ArrayList<Point> nearestPoint = new ArrayList<>();
-    static double nearestDistance = Double.MAX_VALUE;
-
-    public static void main(String args[]){
+    public static void performance(Point[] points){
         long startTime = System.currentTimeMillis();
-        int pointNumber = 1000000;
-        Point[] points = Point.generateRandomPoints(pointNumber);
-        for (Point point : points){
-            System.out.println(point);
-        }
-
         //按照x轴排序，方便divide
         Arrays.sort(points, new Comparator<Point>() {
             @Override
@@ -39,8 +30,14 @@ public class Main {
             System.out.println(point);
         }
         long endTime = System.currentTimeMillis();
-        System.out.println(points.length);
-        System.out.println("计算时间: " + (endTime - startTime) + "ms");
+        System.out.println("点数=" + points.length + ";Nlgn算法计算时间: " + (endTime - startTime) + "ms");
+    }
+
+    public static void main(String args[]){
+        int pointNumber = 1000000;
+        Point[] points = Point.generateRandomPoints(pointNumber);
+
+        performance(points);
     }
 
     public static void findNearestDistance(Point[] points, int start, int end){
