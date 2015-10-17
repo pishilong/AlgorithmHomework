@@ -5,7 +5,7 @@ package nearestPoint;
  */
 public class Compare {
     public static void main(String args[]){
-        int numbers[] = {10, 100, 1000, 10000, 100000};
+        int numbers[] = {10, 100, 1000, 10000, 20000, 30000, 40000, 50000};
         for (int number : numbers){
             Point[] points = Point.generateRandomPoints(number);
             (new BruteForce()).performance(points);

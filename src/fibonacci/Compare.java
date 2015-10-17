@@ -5,7 +5,7 @@ package fibonacci;
  */
 public class Compare {
     public static void main(String args[]){
-        int numbers[] = {10, 20, 30, 40, 50};
+        int numbers[] = {10, 20, 30, 35, 40, 45, 50};
         for (int number : numbers){
             long startTime = System.currentTimeMillis();
             System.out.println("Fibonacci(" + number + ") = " + Linear.performance(number));

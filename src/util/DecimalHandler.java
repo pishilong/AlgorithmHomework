@@ -20,4 +20,14 @@ public class DecimalHandler {
         String formattedString = df.format(originDouble);
         return Double.valueOf(formattedString);
     }
+
+    public static long[] generateUnsignInt(int count){
+        Random random = new Random();
+        long result[] = new long[count];
+        for (int i = 0 ; i < count; i ++ ){
+            int tmp = random.nextInt();
+            result[i] = tmp & Integer.MAX_VALUE;
+        }
+        return result;
+    }
 }
