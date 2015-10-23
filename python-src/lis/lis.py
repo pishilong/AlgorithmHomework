@@ -51,8 +51,3 @@ def find_pos(best_end, index, v):
             right = mid - 1
 
     return left
-
-if __name__ == '__main__':
-    input_string = "9,2,5,3,7,11,8,10,13,6"
-    input_seq = map(int, input_string.split(','))
-    lis(input_seq)
